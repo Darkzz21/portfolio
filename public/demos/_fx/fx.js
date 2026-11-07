@@ -66,3 +66,18 @@
     });
   }
 })();
+
+// Los contactos de las demos usan un número ficticio: en vez de abrir WhatsApp o el teléfono, se avisa.
+(() => {
+  let toast, timer;
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href*="5491100000000"]');
+    if (!a) return;
+    e.preventDefault();
+    if (!toast) { toast = document.createElement('div'); toast.className = 'fx-toast'; toast.setAttribute('role', 'status'); document.body.appendChild(toast); }
+    const tipo = a.href.startsWith('tel:') ? 'iniciaría una llamada al negocio' : 'abriría el WhatsApp del negocio con un mensaje listo';
+    toast.innerHTML = `<b>Proyecto demo:</b> en un sitio real este botón ${tipo}.`;
+    toast.classList.add('ver');
+    clearTimeout(timer); timer = setTimeout(() => toast.classList.remove('ver'), 3200);
+  });
+})();
