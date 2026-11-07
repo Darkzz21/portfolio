@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forja Supps | Proteínas, creatina y más en Caballito, CABA</title>
+<meta name="description" content="Tienda de suplementos deportivos en Caballito, CABA. Proteínas, creatina, pre-entreno y más. Pedí por WhatsApp con envío a domicilio.">
+<style>
+:root{--bg:#0d0d0f;--panel:#17171b;--borde:#2a2a31;--txt:#f2f2f5;--suave:#9a9aa6;--acc:#ff6a1a}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;background:#0d0d0fee;backdrop-filter:blur(8px);border-bottom:1px solid var(--borde);z-index:10}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+.logo{font-weight:900;letter-spacing:.04em;font-size:1.15rem}.logo span{color:var(--acc)}
+.btn{display:inline-block;background:var(--acc);color:#fff;font-weight:800;padding:13px 24px;border-radius:10px;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px #ff6a1a55}
+.btn.s{padding:9px 16px;font-size:.9rem}
+.hero{padding:110px 0 100px;background:linear-gradient(90deg,#0d0d0f 30%,#0d0d0fb3 60%,#0d0d0f66),radial-gradient(800px 380px at 85% -10%,#ff6a1a33,transparent),url(https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1800&q=70) center/cover}
+@media(max-width:640px){.hero{background:linear-gradient(#0d0d0fcc,#0d0d0ff2),url(https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=70) center/cover}}
+.hero h1{font-size:clamp(2.1rem,7vw,3.8rem);line-height:1.05;max-width:700px;text-transform:uppercase;font-weight:900}
+.hero h1 em{color:var(--acc);font-style:normal}
+.hero p{color:var(--suave);max-width:520px;margin:18px 0 28px;font-size:1.1rem}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px;font-size:.88rem;color:var(--suave)}
+.chips span{border:1px solid var(--borde);border-radius:999px;padding:6px 14px}
+section{padding:64px 0}
+h2{font-size:1.7rem;text-transform:uppercase;font-weight:900;margin-bottom:6px}
+.sub{color:var(--suave);margin-bottom:28px}
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.cat{background:var(--panel);border:1px solid var(--borde);border-radius:14px;padding:20px;text-align:center;font-weight:700;transition:.25s}
+.cat:hover{border-color:var(--acc);transform:translateY(-3px)}
+.cat i{display:block;font-style:normal;font-size:1.8rem;margin-bottom:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.prod{background:var(--panel);border:1px solid var(--borde);border-radius:16px;overflow:hidden;transition:.25s}
+.prod:hover{transform:translateY(-4px);border-color:var(--acc)}
+.img{height:190px;overflow:hidden;background:linear-gradient(135deg,#25252c,#1b1b20);display:grid;place-items:center;color:var(--suave);font-size:.85rem}
+.img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.prod:hover .img img{transform:scale(1.07)}
+.prod div.i{padding:16px}
+.prod h3{font-size:1rem}
+.marca{color:var(--acc);font-size:.75rem;font-weight:800;text-transform:uppercase}
+.precio{font-weight:900;font-size:1.2rem;margin:6px 0 12px}
+.alt{background:var(--panel)}
+.ben{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.ben div{background:var(--bg);border:1px solid var(--borde);border-radius:14px;padding:20px}
+.ben b{display:block;margin:6px 0 4px}.ben p{color:var(--suave);font-size:.95rem}
+.cierre{text-align:center}.cierre p{color:var(--suave);margin:8px 0 24px}
+footer{padding:22px 0;text-align:center;color:var(--suave);font-size:.85rem;border-top:1px solid var(--borde)}
+.wa{position:fixed;right:18px;bottom:18px;background:#25d366;color:#fff;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:1.7rem;box-shadow:0 6px 18px #0006;z-index:20}
+.reveal{opacity:0;transform:translateY(20px);transition:all .6s}.reveal.on{opacity:1;transform:none}
+.demo-ribbon{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;display:flex;gap:10px;align-items:center;background:#0b0f14e6;color:#e8eef5;font:600 .78rem/1 system-ui,sans-serif;padding:9px 14px;border-radius:999px;box-shadow:0 6px 20px #0005;backdrop-filter:blur(6px);white-space:nowrap}
+.demo-ribbon a{color:#3ddc97}.embed .demo-ribbon{display:none}
+@media(max-width:640px){.demo-ribbon{bottom:auto;top:auto;position:static;transform:none;justify-content:center;border-radius:0;box-shadow:none}}
+</style>
+</head>
+<body>
+<script>if(top!==self)document.documentElement.classList.add("embed")</script><div class="demo-ribbon">Proyecto demo · datos ficticios <a href="/">← Volver al portfolio</a></div>
+
+<header><div class="wrap">
+  <div class="logo">FORJA<span>SUPPS</span></div>
+  <a class="btn s" href="https://wa.me/5491100000000?text=Hola!%20Quiero%20hacer%20un%20pedido">Pedir ahora</a>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <h1>Todo para tu <em>entrenamiento</em>, en un solo lugar</h1>
+  <p>Proteínas, creatina, pre-entreno y vitaminas de las mejores marcas. Te asesoramos y te lo llevamos a domicilio.</p>
+  <a class="btn" href="https://wa.me/5491100000000?text=Hola!%20Quiero%20hacer%20un%20pedido">Hacer mi pedido por WhatsApp</a>
+  <div class="chips"><span>🚚 Envíos en CABA y GBA</span><span>✔ Productos originales</span><span>💳 Todos los medios de pago</span></div>
+</div></div>
+
+<section><div class="wrap">
+  <h2 class="reveal">Categorías</h2>
+  <p class="sub reveal">Encontrá lo que necesitás según tu objetivo.</p>
+  <div class="cats">
+    <div class="cat reveal"><i>💪</i>Proteínas</div>
+    <div class="cat reveal"><i>⚡</i>Creatina</div>
+    <div class="cat reveal"><i>🔥</i>Pre-entreno</div>
+    <div class="cat reveal"><i>🍊</i>Vitaminas</div>
+    <div class="cat reveal"><i>🥤</i>Aminoácidos</div>
+    <div class="cat reveal"><i>🥜</i>Snacks fit</div>
+  </div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <h2 class="reveal">Más pedidos</h2>
+  <p class="sub reveal">Los favoritos de nuestra comunidad este mes.</p>
+  <div class="grid">
+    <div class="prod reveal"><div class="img"><img src="https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?auto=format&fit=crop&w=600&q=70" alt="Batido de proteína" loading="lazy"></div><div class="i"><span class="marca">Forja Nutrition</span><h3>Proteína Whey 1 kg</h3><div class="precio">$38.900</div><a class="btn s" href="https://wa.me/5491100000000?text=Hola!%20Quiero%20la%20Whey%201kg">Pedir</a></div></div>
+    <div class="prod reveal"><div class="img"><img src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?auto=format&fit=crop&w=600&q=70" alt="Creatina en polvo" loading="lazy"></div><div class="i"><span class="marca">IronLab</span><h3>Creatina monohidrato 300 g</h3><div class="precio">$24.500</div><a class="btn s" href="https://wa.me/5491100000000?text=Hola!%20Quiero%20la%20creatina">Pedir</a></div></div>
+    <div class="prod reveal"><div class="img"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=600&q=70" alt="Entrenamiento con barra" loading="lazy"></div><div class="i"><span class="marca">Pulse Pro</span><h3>Pre-entreno 300 g</h3><div class="precio">$27.800</div><a class="btn s" href="https://wa.me/5491100000000?text=Hola!%20Quiero%20el%20pre-entreno">Pedir</a></div></div>
+    <div class="prod reveal"><div class="img"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=70" alt="Cápsulas multivitamínicas" loading="lazy"></div><div class="i"><span class="marca">VitaCore</span><h3>Multivitamínico x 90</h3><div class="precio">$15.200</div><a class="btn s" href="https://wa.me/5491100000000?text=Hola!%20Quiero%20el%20multivitaminico">Pedir</a></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2 class="reveal">Por qué comprar con nosotros</h2>
+  <p class="sub reveal">&nbsp;</p>
+  <div class="ben">
+    <div class="reveal">✔<b>Asesoramiento real</b><p>Te ayudamos a elegir según tu objetivo y presupuesto.</p></div>
+    <div class="reveal">🚚<b>Envío rápido</b><p>Entregas a domicilio y retiro en el local.</p></div>
+    <div class="reveal">🛡️<b>Productos originales</b><p>Marcas reconocidas, con fecha de vencimiento vigente.</p></div>
+  </div>
+</div></section>
+
+<section class="alt cierre"><div class="wrap">
+  <h2 class="reveal">Visitanos o pedí por WhatsApp</h2>
+  <p class="reveal">Av. Rivadavia 5320, Caballito, CABA · Lunes a sábado de 9 a 21 h</p>
+  <a class="btn" href="https://wa.me/5491100000000?text=Hola!%20Quiero%20hacer%20un%20pedido">Escribir por WhatsApp</a>
+</div></section>
+
+<footer>© 2026 Forja Supps. Todos los derechos reservados.</footer>
+<a class="wa" href="https://wa.me/5491100000000" aria-label="WhatsApp">💬</a>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
