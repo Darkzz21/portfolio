@@ -9,12 +9,13 @@ const GITHUB = '';   // ej: 'https://github.com/tu-usuario'
 const EMAIL = '';    // ej: 'tunombre@mail.com'
 
 // Para agregar un proyecto: copiá la carpeta en public/demos/<nombre>/ y sumá un objeto acá.
+const base = import.meta.env.BASE_URL.replace(/\/$/, ''); // '/portfolio' en GitHub Pages
 const proyectos = [
   {
     nombre: 'Forja Supps',
     rubro: 'E-commerce · Suplementos',
     desc: 'Tienda de suplementos con estética deportiva oscura, catálogo por categorías y pedido directo por WhatsApp desde cada producto.',
-    url: '/demos/suplementos/index.html',
+    url: `${base}/demos/suplementos/index.html`,
     tags: ['Catálogo', 'Dark UI', 'Animaciones'],
     color: '#ff6a1a',
   },
@@ -22,7 +23,7 @@ const proyectos = [
     nombre: 'Prisma Dental',
     rubro: 'Salud · Consultorio',
     desc: 'Sitio para consultorio odontológico: transmite confianza, explica tratamientos y lleva a pedir turno en un clic.',
-    url: '/demos/odontologo/index.html',
+    url: `${base}/demos/odontologo/index.html`,
     tags: ['Landing', 'Turnos', 'SEO local'],
     color: '#2bb5a0',
   },
@@ -30,7 +31,7 @@ const proyectos = [
     nombre: 'Nácar Estética',
     rubro: 'Belleza · Centro de estética',
     desc: 'Identidad cálida y editorial con tipografía serif, carta de tratamientos con precios y galería del espacio.',
-    url: '/demos/estetica/index.html',
+    url: `${base}/demos/estetica/index.html`,
     tags: ['Branding', 'Galería', 'Reservas'],
     color: '#c7857a',
   },
@@ -38,7 +39,7 @@ const proyectos = [
     nombre: 'HidroClima',
     rubro: 'Servicios · Plomería y A/A',
     desc: 'Pensado para urgencias desde el celular: barra fija de llamada y WhatsApp, servicios claros y zonas de cobertura.',
-    url: '/demos/servicio-tecnico/index.html',
+    url: `${base}/demos/servicio-tecnico/index.html`,
     tags: ['Mobile first', 'Click to call', 'Conversión'],
     color: '#0b64b0',
   },
