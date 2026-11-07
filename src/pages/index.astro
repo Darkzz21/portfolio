@@ -49,14 +49,60 @@ const proyectos = [
   },
 ];
 
+// Íconos de línea (SVG) para las tarjetas de "Cómo trabajo"
+const ic = (d: string) => `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
 const enfoque = [
-  { t: 'Responsive real', d: 'Cada sitio se diseña y prueba en celular, tablet y escritorio, no solo se “achica”.' },
-  { t: 'Rápido y liviano', d: 'HTML y CSS optimizados, sin dependencias innecesarias: carga en segundos.' },
-  { t: 'Pensado para convertir', d: 'Llamados a la acción claros según el rubro: turno, pedido o llamada.' },
-  { t: 'SEO y accesibilidad', d: 'Estructura semántica, metadatos y textos alternativos desde el inicio.' },
+  { t: 'Responsive real', d: 'Cada sitio se diseña y prueba en celular, tablet y escritorio, no solo se “achica”.', i: ic('<rect x="2" y="4" width="14" height="10" rx="1.5"/><path d="M6 18h6"/><rect x="17" y="8" width="5" height="12" rx="1"/>') },
+  { t: 'Rápido y liviano', d: 'HTML y CSS optimizados, sin dependencias innecesarias: carga en segundos.', i: ic('<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>') },
+  { t: 'Pensado para convertir', d: 'Llamados a la acción claros según el rubro: turno, pedido o llamada.', i: ic('<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/>') },
+  { t: 'SEO y accesibilidad', d: 'Estructura semántica, metadatos y textos alternativos desde el inicio.', i: ic('<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>') },
 ];
 
-const stack = ['Astro', 'HTML5', 'CSS3', 'JavaScript', 'Diseño responsive', 'Git', 'Netlify'];
+// Habilidades agrupadas. "en" = dónde se puede ver aplicada en este portfolio.
+const habilidades = [
+  {
+    cat: 'Desarrollo Front-end', color: '#4da3ff',
+    resumen: 'Código limpio y semántico que funciona en cualquier navegador.',
+    items: [
+      { n: 'HTML5 semántico', d: 'Estructura clara para buscadores y lectores de pantalla.', en: 'Todas las demos' },
+      { n: 'CSS3 · Flexbox y Grid', d: 'Layouts que se reacomodan solos según el tamaño de pantalla.', en: 'Grilla de productos de Forja Supps' },
+      { n: 'Animaciones CSS', d: 'Transiciones y efectos al pasar el mouse, sin librerías pesadas.', en: 'Tarjetas y fotos de las demos' },
+      { n: 'JavaScript (ES6+)', d: 'Interacciones y animaciones al hacer scroll con IntersectionObserver.', en: 'Aparición de secciones en las demos' },
+      { n: 'Astro', d: 'Framework moderno para sitios estáticos ultrarrápidos.', en: 'Este portfolio' },
+      { n: 'Componentes y datos', d: 'Contenido separado del diseño: sumar un proyecto es agregar una línea.', en: 'Lista de proyectos de este portfolio' },
+    ],
+  },
+  {
+    cat: 'Diseño Web · UI/UX', color: '#3ddc97',
+    resumen: 'Interfaces con identidad propia, pensadas para el usuario.',
+    items: [
+      { n: 'Mobile first', d: 'Primero se diseña para el celular y después se amplía al escritorio.', en: 'Barra fija de llamada en HidroClima' },
+      { n: 'Diseño de interfaces', d: 'Jerarquía visual, espaciados y componentes consistentes.', en: 'Las 4 demos' },
+      { n: 'Color y tipografía', d: 'Cada marca con su propia paleta y tipografía según el rubro.', en: 'Estilo editorial serif de Nácar Estética' },
+      { n: 'UX y conversión', d: 'Recorridos simples que llevan a la acción: turno, pedido o consulta.', en: 'Turnos por WhatsApp en Prisma Dental' },
+      { n: 'Dirección de arte', d: 'Selección de fotografía y tratamiento con overlays y degradados.', en: 'Portadas de Forja Supps y HidroClima' },
+    ],
+  },
+  {
+    cat: 'Optimización', color: '#ff9f1c',
+    resumen: 'Sitios que cargan rápido y aparecen en Google.',
+    items: [
+      { n: 'SEO on-page', d: 'Títulos, descripciones y estructura pensados para buscadores.', en: 'Metadatos de cada demo' },
+      { n: 'Accesibilidad', d: 'Contraste, textos alternativos y etiquetas para lectores de pantalla.', en: 'Imágenes y botones de las demos' },
+      { n: 'Performance', d: 'Imágenes optimizadas y carga diferida (lazy loading).', en: 'Fotos y vistas previas de este portfolio' },
+    ],
+  },
+  {
+    cat: 'Herramientas y flujo', color: '#b18cff',
+    resumen: 'Trabajo ordenado, versionado y con publicación automática.',
+    items: [
+      { n: 'Git', d: 'Control de versiones: cada cambio queda registrado.', en: 'Historial de este proyecto' },
+      { n: 'GitHub', d: 'Repositorios y código público para mostrar mi trabajo.', en: 'github.com/Darkzz21/portfolio' },
+      { n: 'GitHub Actions + Pages', d: 'Publicación automática en cada actualización.', en: 'Este portfolio se publica solo' },
+      { n: 'npm', d: 'Gestión de dependencias y scripts de compilación.', en: 'Build de este portfolio' },
+    ],
+  },
+];
 
 const contactos = [
   LINKEDIN && { label: 'LinkedIn', href: LINKEDIN },
@@ -72,7 +118,7 @@ const contactos = [
       <a class="logo" href="#top">{NOMBRE}<span>.</span></a>
       <nav>
         <a href="#proyectos">Proyectos</a>
-        <a href="#enfoque">Enfoque</a>
+        <a href="#habilidades">Habilidades</a>
         <a href="#contacto">Contacto</a>
       </nav>
     </div>
@@ -135,20 +181,42 @@ const contactos = [
     </div>
   </section>
 
-  <section class="alt" id="enfoque">
+  <section class="alt" id="habilidades">
+    <div class="wrap">
+      <h2>Habilidades</h2>
+      <p class="sub">Lo que sé hacer y dónde lo apliqué. Pasá el mouse (o tocá) cada habilidad para ver el detalle.</p>
+      <div class="skills">
+        {habilidades.map((h) => (
+          <div class="glow skill-cat" style={`--c:${h.color}`}>
+            <h3><span class="dot"></span>{h.cat}</h3>
+            <ul class="chips">
+              {h.items.map((s) => (
+                <li><button type="button" class="chip" data-d={s.d} data-en={s.en}>{s.n}</button></li>
+              ))}
+            </ul>
+            <div class="detalle" aria-live="polite">
+              <p class="d-txt">{h.resumen}</p>
+              <p class="d-en"></p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="enfoque">
     <div class="wrap">
       <h2>Cómo trabajo</h2>
       <p class="sub">Lo que cuido en cada proyecto, más allá de que se vea lindo.</p>
       <div class="grid">
-        {enfoque.map((e) => (
-          <div class="card">
+        {enfoque.map((e, i) => (
+          <div class="glow card" style={`--c:${['#4da3ff', '#ff9f1c', '#3ddc97', '#b18cff'][i]}`}>
+            <span class="icono"><Fragment set:html={e.i} /></span>
             <h3>{e.t}</h3>
             <p>{e.d}</p>
           </div>
         ))}
       </div>
-      <h3 class="stack-t">Herramientas</h3>
-      <ul class="stack">{stack.map((s) => <li>{s}</li>)}</ul>
     </div>
   </section>
 
@@ -179,6 +247,35 @@ const contactos = [
     };
     const ro = new ResizeObserver((es) => es.forEach((e) => ajustar(e.target as HTMLElement)));
     document.querySelectorAll<HTMLElement>('.screen').forEach((el) => { ajustar(el); ro.observe(el); });
+
+    // Brillo que sigue al mouse en las tarjetas
+    document.querySelectorAll<HTMLElement>('.glow').forEach((el) => {
+      el.addEventListener('pointermove', (e) => {
+        const r = el.getBoundingClientRect();
+        el.style.setProperty('--x', `${e.clientX - r.left}px`);
+        el.style.setProperty('--y', `${e.clientY - r.top}px`);
+      });
+    });
+
+    // Detalle de cada habilidad al pasar el mouse, enfocar o tocar
+    document.querySelectorAll<HTMLElement>('.skill-cat').forEach((cat) => {
+      const txt = cat.querySelector<HTMLElement>('.d-txt')!;
+      const en = cat.querySelector<HTMLElement>('.d-en')!;
+      const resumen = txt.textContent;
+      const chips = cat.querySelectorAll<HTMLButtonElement>('.chip');
+      const mostrar = (c: HTMLButtonElement | null) => {
+        chips.forEach((x) => x.classList.toggle('on', x === c));
+        txt.textContent = c ? c.dataset.d! : resumen;
+        en.textContent = c ? `Aplicado en: ${c.dataset.en}` : '';
+        cat.classList.toggle('activa', !!c);
+      };
+      chips.forEach((c) => {
+        c.addEventListener('mouseenter', () => mostrar(c));
+        c.addEventListener('focus', () => mostrar(c));
+        c.addEventListener('click', () => mostrar(c));
+      });
+      cat.addEventListener('mouseleave', () => mostrar(null));
+    });
   </script>
 </Base>
 
@@ -239,12 +336,37 @@ const contactos = [
   .nota { margin-top: 48px; color: var(--suave); font-size: .85rem; }
 
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
-  .card { background: var(--bg); border: 1px solid var(--borde); border-radius: 18px; padding: 24px; }
+  /* ---- Tarjetas con brillo que sigue al mouse ---- */
+  .glow { position: relative; isolation: isolate; overflow: hidden; background: var(--panel); border: 1px solid var(--borde); border-radius: 18px; transition: transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s, box-shadow .35s; }
+  .alt .glow { background: var(--bg); }
+  .glow::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity .35s; background: radial-gradient(320px circle at var(--x, 50%) var(--y, 0%), color-mix(in srgb, var(--c) 22%, transparent), transparent 70%); }
+  .glow:hover { transform: translateY(-6px); border-color: color-mix(in srgb, var(--c) 60%, transparent); box-shadow: 0 18px 40px #0007, 0 0 0 1px color-mix(in srgb, var(--c) 25%, transparent); }
+  .glow:hover::before { opacity: 1; }
+
+  .card { padding: 26px; }
   .card h3 { margin-bottom: 6px; }
   .card p { color: var(--suave); font-size: .95rem; }
-  .stack-t { margin: 44px 0 14px; font-size: 1.1rem; }
-  .stack { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; }
-  .stack li { background: var(--bg); border: 1px solid var(--borde); border-radius: 10px; padding: 8px 14px; font-size: .9rem; }
+  .icono { display: grid; place-items: center; width: 50px; height: 50px; border-radius: 14px; margin-bottom: 16px; color: var(--c); background: color-mix(in srgb, var(--c) 14%, transparent); transition: transform .4s cubic-bezier(.2,.8,.2,1), background .3s, color .3s; }
+  .card:hover .icono { transform: rotate(-8deg) scale(1.12); background: var(--c); color: #0b0f14; }
+
+  /* ---- Habilidades ---- */
+  .skills { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 760px) { .skills { grid-template-columns: 1fr; } }
+  .skill-cat { padding: 26px; display: flex; flex-direction: column; }
+  .skill-cat h3 { display: flex; align-items: center; gap: 10px; font-size: 1.15rem; margin-bottom: 16px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--c); box-shadow: 0 0 12px var(--c); }
+  .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { font: inherit; font-size: .88rem; color: var(--texto); background: var(--panel); border: 1px solid var(--borde); border-radius: 10px; padding: 8px 14px; cursor: pointer; transition: transform .25s cubic-bezier(.2,.8,.2,1), background .25s, border-color .25s, color .25s, box-shadow .25s; }
+  .chip:hover, .chip.on { transform: translateY(-3px); background: var(--c); border-color: var(--c); color: #0b0f14; font-weight: 600; box-shadow: 0 8px 18px color-mix(in srgb, var(--c) 35%, transparent); }
+  .chip:focus-visible { outline: 2px solid var(--c); outline-offset: 2px; }
+  .detalle { margin-top: auto; padding-top: 18px; min-height: 92px; }
+  .detalle .d-txt { color: var(--suave); font-size: .93rem; padding-top: 14px; border-top: 1px dashed var(--borde); transition: color .25s; }
+  .activa .d-txt { color: var(--texto); }
+  .d-en { margin-top: 6px; font-size: .82rem; font-weight: 700; color: var(--c); min-height: 1.2em; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .glow, .glow:hover, .chip, .chip:hover, .icono, .card:hover .icono { transition: none; transform: none; }
+  }
 
   .cierre { text-align: center; }
   .cierre p { color: var(--suave); margin: 8px 0 24px; }
