@@ -18,31 +18,35 @@ const proyectos = [
   {
     nombre: 'Forja Supps',
     rubro: 'E-commerce · Suplementos',
-    desc: 'Tienda de suplementos con estética deportiva oscura, catálogo por categorías y pedido directo por WhatsApp desde cada producto.',
+    plan: 'Web con catálogo',
+    desc: 'Tienda con 12 productos, filtros por categoría, buscador y carrito: el cliente arma su pedido y lo envía completo por WhatsApp, con el total calculado.',
     url: `${base}/demos/suplementos/index.html`,
-    tags: ['Catálogo', 'Dark UI', 'Animaciones'],
+    tags: ['Carrito', 'Filtros y búsqueda', 'Pedido por WhatsApp'],
     color: '#ff6a1a',
   },
   {
     nombre: 'Prisma Dental',
     rubro: 'Salud · Consultorio',
-    desc: 'Sitio para consultorio odontológico: transmite confianza, explica tratamientos y lleva a pedir turno en un clic.',
+    plan: 'Web Profesional',
+    desc: 'Sitio de 5 páginas: inicio, tratamientos con preguntas frecuentes, galería ampliable, nosotros con reseñas y contacto con mapa y formulario que llega por WhatsApp.',
     url: `${base}/demos/odontologo/index.html`,
-    tags: ['Landing', 'Turnos', 'SEO local'],
+    tags: ['5 páginas', 'SEO local', 'Formulario a WhatsApp'],
     color: '#2bb5a0',
   },
   {
     nombre: 'Nácar Estética',
     rubro: 'Belleza · Centro de estética',
-    desc: 'Identidad cálida y editorial con tipografía serif, carta de tratamientos con precios y galería del espacio.',
+    plan: 'Web Profesional',
+    desc: 'Identidad cálida y editorial en 5 páginas: lista de precios por categoría, packs, galería, equipo y reservas con mapa.',
     url: `${base}/demos/estetica/index.html`,
-    tags: ['Branding', 'Galería', 'Reservas'],
+    tags: ['5 páginas', 'Lista de precios', 'Galería'],
     color: '#c7857a',
   },
   {
     nombre: 'HidroClima',
     rubro: 'Servicios · Plomería y A/A',
-    desc: 'Pensado para urgencias desde el celular: barra fija de llamada y WhatsApp, servicios claros y zonas de cobertura.',
+    plan: 'Web Express',
+    desc: 'Una sola página pensada para urgencias desde el celular: servicios, zonas con mapa y barra fija para llamar o escribir por WhatsApp.',
     url: `${base}/demos/servicio-tecnico/index.html`,
     tags: ['Mobile first', 'Click to call', 'Conversión'],
     color: '#0b64b0',
@@ -194,6 +198,7 @@ const contactos = [
             </a>
             <div class="glow info">
               <span class="num">0{i + 1}</span>
+              <span class="plan">{p.plan}</span>
               <span class="rubro">{p.rubro}</span>
               <h3>{p.nombre}</h3>
               <p>{p.desc}</p>
@@ -475,6 +480,7 @@ const contactos = [
 
   .info { padding: 28px; }
   .num { font-size: .85rem; font-weight: 800; color: var(--c); }
+  .plan { display: inline-block; margin-left: 10px; vertical-align: 1px; padding: 3px 10px; border-radius: 999px; font-size: .72rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--c); border: 1px solid color-mix(in srgb, var(--c) 55%, transparent); background: color-mix(in srgb, var(--c) 12%, transparent); }
   .rubro { display: block; color: var(--suave); font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-top: 6px; }
   .info h3 { font-size: 1.8rem; margin: 4px 0 10px; }
   .info p { color: var(--suave); }

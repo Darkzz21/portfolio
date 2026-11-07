@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contacto y turnos | Prisma Dental, Belgrano, CABA</title>
+<meta name="description" content="Pedí tu turno en Prisma Dental: Av. Cabildo 2150, 3° B, Belgrano, CABA. Lunes a viernes de 9 a 20 h.">
+<link rel="stylesheet" href="estilo.css">
+<link rel="stylesheet" href="../_fx/fx.css">
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Dentist","name":"Prisma Dental","address":{"@type":"PostalAddress","streetAddress":"Av. Cabildo 2150, 3° B","addressLocality":"Belgrano, CABA","addressCountry":"AR"},"telephone":"+5491100000000","openingHours":"Mo-Fr 09:00-20:00","priceRange":"$$"}</script>
+</head>
+<body>
+<script>if(top!==self)document.documentElement.classList.add("embed")</script><div class="demo-ribbon">Proyecto demo · Web Profesional · datos ficticios <a href="../../">← Volver al portfolio</a></div>
+<header><div class="wrap">
+  <a class="logo" href="index.html">🦷 Prisma Dental</a>
+  <nav class="menu" aria-label="Principal"><a href="index.html">Inicio</a><a href="servicios.html">Tratamientos</a><a href="galeria.html">Galería</a><a href="nosotros.html">Nosotros</a><a href="contacto.html" class="activo" aria-current="page">Contacto</a></nav>
+  <a class="btn s cta-head" href="https://wa.me/5491100000000?text=Hola!%20Quiero%20pedir%20un%20turno">Pedir turno</a>
+  <button class="nav-btn" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+</div></header>
+<main>
+<section class="page-hero"><div class="wrap">
+  <p class="miga"><a href="index.html">Inicio</a> / Contacto</p>
+  <h1>Pedí tu turno</h1>
+  <p class="lead">Escribinos y te respondemos en el día.</p>
+</div></section>
+<section><div class="wrap">
+  <div class="contacto-grid">
+    <div class="datos-lista">
+      <div class="dato reveal"><span class="ic">📍</span><div><b>Dirección</b>Av. Cabildo 2150, 3° B, Belgrano, CABA</div></div>
+      <div class="dato reveal"><span class="ic">🕒</span><div><b>Horario</b>Lunes a viernes de 9 a 20 h</div></div>
+      <div class="dato reveal"><span class="ic">💬</span><div><b>WhatsApp</b><a href="https://wa.me/5491100000000?text=Hola!%20Quiero%20pedir%20un%20turno">Escribinos y pedí tu turno</a></div></div>
+      <div class="dato reveal"><span class="ic">🩺</span><div><b>Obras sociales</b>OSDE, Swiss Medical y Galeno</div></div>
+    </div>
+    <form class="consulta reveal" data-wa="https://wa.me/5491100000000">
+      <label>Tu nombre<input name="nombre" required autocomplete="name" placeholder="Ej: Martina"></label>
+      <label>Motivo de la consulta<select name="motivo"><option>Limpieza y control</option><option>Blanqueamiento</option><option>Ortodoncia</option><option>Implantes</option><option>Urgencias</option><option>Odontopediatría</option><option>Otro</option></select></label>
+      <label>Mensaje (opcional)<textarea name="mensaje" rows="3" placeholder="Contanos qué necesitás"></textarea></label>
+      <button type="submit">Enviar por WhatsApp</button>
+    </form>
+  </div>
+  <div class="mapa reveal"><iframe src="https://maps.google.com/maps?q=Av.%20Cabildo%202150%2C%203%C2%B0%20B%2C%20Belgrano%2C%20CABA&z=15&output=embed" title="Mapa de ubicación" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+</div></section>
+</main>
+<footer class="pie"><div class="wrap">
+  <div class="pie-grid">
+    <div><div class="logo">🦷 Prisma Dental</div><p style="margin-top:10px;opacity:.85">Consultorio odontológico en Belgrano. Atención personalizada y turnos que se adaptan a tu horario.</p></div>
+    <div><h4>Secciones</h4><ul><li><a href="index.html">Inicio</a></li><li><a href="servicios.html">Tratamientos</a></li><li><a href="galeria.html">Galería</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+    <div><h4>Contacto</h4><ul><li>Av. Cabildo 2150, 3° B, Belgrano, CABA</li><li>Lunes a viernes de 9 a 20 h</li><li><a href="https://wa.me/5491100000000?text=Hola!%20Quiero%20pedir%20un%20turno">WhatsApp</a></li></ul></div>
+  </div>
+  <p class="copy">© 2026 Prisma Dental. Todos los derechos reservados.</p>
+</div></footer>
+<a class="wa" href="https://wa.me/5491100000000?text=Hola!" aria-label="WhatsApp">💬</a>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const nb=document.querySelector('.nav-btn');nb&&nb.addEventListener('click',()=>{const o=document.body.classList.toggle('menu-abierto');nb.setAttribute('aria-expanded',o)});
+const lb=document.querySelector('.lightbox');
+if(lb){const img=lb.querySelector('img'),cap=lb.querySelector('p');
+document.querySelectorAll('.galeria figure').forEach(f=>{f.tabIndex=0;const abrir=()=>{img.src=f.dataset.full;img.alt=f.querySelector('img').alt;cap.textContent=f.querySelector('figcaption').textContent;lb.classList.add('ver')};f.addEventListener('click',abrir);f.addEventListener('keydown',e=>{if(e.key==='Enter')abrir()})});
+lb.addEventListener('click',()=>lb.classList.remove('ver'));addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('ver')})}
+const fm=document.querySelector('form.consulta');
+fm&&fm.addEventListener('submit',e=>{e.preventDefault();const d=new FormData(fm);
+const t='Hola! Soy '+d.get('nombre')+'. Consulto por: '+d.get('motivo')+(d.get('mensaje')?'. '+d.get('mensaje'):'');
+const a=document.createElement('a');a.href=fm.dataset.wa+'?text='+encodeURIComponent(t);a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove()});
+</script>
+<script src="../_fx/fx.js" defer></script>
+</body>
+</html>

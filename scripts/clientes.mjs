@@ -86,49 +86,62 @@ function generar(archivo) {
   if (!base) throw new Error(`"demo" debe ser una de: ${Object.keys(BASES).join(', ')}`);
   if (!datos.nombre || !datos.whatsapp) throw new Error('faltan "nombre" y/o "whatsapp"');
 
-  let html = fs.readFileSync(path.join(RAIZ, 'public', 'demos', datos.demo, 'index.html'), 'utf8');
   const sinCambiar = [];
 
-  // Textos
+  // 1) Lista de reemplazos de texto [original, nuevo]
+  const textos = [];
   const valores = { ...datos, logo: datos.logo || datos.nombre };
   for (const [campo, originales] of Object.entries({ ...base.textos, ciudad: [', CABA'] })) {
-    let nuevo = valores[campo];
-    if (nuevo == null || nuevo === '') { if (campo !== 'ciudad') sinCambiar.push(campo); continue; }
-    if (campo === 'ciudad') nuevo = `, ${nuevo}`;
-    if (campo === 'barrios') nuevo = [].concat(nuevo).map((b) => `<span>${escapar(b)}</span>`).join('');
+    const crudo = valores[campo];
+    if (crudo == null || crudo === '') { if (campo !== 'ciudad') sinCambiar.push(campo); continue; }
+    let nuevo;
+    if (campo === 'barrios') nuevo = [].concat(crudo).map((b) => `<span>${escapar(b)}</span>`).join('');
     else if (campo === 'logo' && datos.demo === 'suplementos') {
-      const [a, ...b] = String(nuevo).split(' ');
+      const [a, ...b] = String(crudo).split(' ');
       nuevo = b.length ? `${escapar(a)}<span>${escapar(b.join(' '))}</span>` : escapar(a);
-    } else if (campo === 'logo' && datos.demo === 'servicio-tecnico') nuevo = `${escapar(nuevo)}</div>`;
-    else if (campo === 'ciudad') nuevo = `, ${escapar(String(nuevo).slice(2))}`;
-    else nuevo = escapar(nuevo);
-    for (const o of originales) html = html.split(o).join(nuevo);
+    } else if (campo === 'logo' && datos.demo === 'servicio-tecnico') nuevo = `${escapar(crudo)}</div>`;
+    else if (campo === 'ciudad') nuevo = `, ${escapar(crudo)}`;
+    else nuevo = escapar(crudo);
+    for (const o of originales) {
+      textos.push([o, nuevo]);
+      // también dentro de URLs (ej. la dirección del mapa de Google)
+      if (['nombre', 'barrio', 'direccion', 'zona', 'ciudad'].includes(campo)) {
+        textos.push([encodeURIComponent(o), encodeURIComponent(campo === 'ciudad' ? `, ${crudo}` : crudo)]);
+      }
+    }
   }
 
-  // Colores (se reemplaza también la versión con transparencia, ej. #ff6a1a33)
+  // 2) Colores (se reemplaza también la versión con transparencia, ej. #ff6a1a33)
   const c = datos.colores || {};
   const mapa = {
     principal: c.principal, principalOscuro: c.principal && oscurecer(c.principal),
     secundario: c.secundario, secundarioOscuro: c.secundario && oscurecer(c.secundario),
   };
-  for (const [rol, originales] of Object.entries(base.colores)) {
-    if (!mapa[rol]) continue;
-    for (const o of originales) html = html.replace(new RegExp(`#${o}`, 'gi'), `#${hex(mapa[rol])}`);
-  }
+  const colores = Object.entries(base.colores).filter(([rol]) => mapa[rol])
+    .flatMap(([rol, originales]) => originales.map((o) => [new RegExp(`#${o}`, 'gi'), `#${hex(mapa[rol])}`]));
 
-  // Contacto real del cliente (el aviso de "demo" deja de aparecer solo)
   const t = telefonos(datos.whatsapp);
-  html = html.split(`tel:+${DEMO_WA}`).join(`tel:${t.tel}`).split(DEMO_WA).join(t.wa);
-
-  // Rutas: el borrador vive en /clientes/<slug>/ y usa los efectos de /demos/_fx/
-  html = html.split('../_fx/').join('../../demos/_fx/');
-
-  // Franja de borrador + no indexar en Google
-  html = html.replace(/<div class="demo-ribbon">[\s\S]*?<\/div>/, `<div class="demo-ribbon">Borrador para ${escapar(datos.nombre)} · <a href="../../">diseñado por Flavio</a></div>`);
-  html = html.replace('<meta charset="UTF-8">', '<meta charset="UTF-8">\n<meta name="robots" content="noindex">');
-
+  const origen = path.join(RAIZ, 'public', 'demos', datos.demo);
   fs.mkdirSync(path.join(SALIDA, slug), { recursive: true });
-  fs.writeFileSync(path.join(SALIDA, slug, 'index.html'), html);
+
+  // 3) Se procesan todas las páginas y estilos de la demo (las profesionales tienen varias)
+  for (const archivo of fs.readdirSync(origen)) {
+    let s = fs.readFileSync(path.join(origen, archivo), 'utf8');
+    if (/\.(html|css)$/.test(archivo)) {
+      for (const [o, n] of textos) s = s.split(o).join(n);
+      for (const [re, n] of colores) s = s.replace(re, n);
+    }
+    if (archivo.endsWith('.html')) {
+      // Contacto real del cliente (el aviso de "demo" deja de aparecer solo)
+      s = s.split(`tel:+${DEMO_WA}`).join(`tel:${t.tel}`).split(`+${DEMO_WA}`).join(t.tel).split(DEMO_WA).join(t.wa);
+      // Rutas: el borrador vive en /clientes/<slug>/ y usa los efectos de /demos/_fx/
+      s = s.split('../_fx/').join('../../demos/_fx/');
+      // Franja de borrador + no indexar en Google
+      s = s.replace(/<div class="demo-ribbon">[\s\S]*?<\/div>/, `<div class="demo-ribbon">Borrador para ${escapar(datos.nombre)} · <a href="../../">diseñado por Flavio</a></div>`);
+      s = s.replace('<meta charset="UTF-8">', '<meta charset="UTF-8">\n<meta name="robots" content="noindex">');
+    }
+    fs.writeFileSync(path.join(SALIDA, slug, archivo), s);
+  }
   return { slug, sinCambiar };
 }
 

@@ -5,84 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nácar Estética | Centro de estética en Palermo, CABA</title>
 <meta name="description" content="Centro de estética en Palermo, CABA. Tratamientos faciales, corporales y depilación. Reservá tu turno por WhatsApp.">
-<style>
-:root{--bg:#fbf6f3;--panel:#fff;--txt:#3a2c2c;--suave:#8a7774;--acc:#c7857a;--acc2:#b3695d;--oro:#c9a66b}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Georgia,"Times New Roman",serif;background:var(--bg);color:var(--txt);line-height:1.7}
-.sans{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
-header{position:sticky;top:0;background:#fbf6f3ee;backdrop-filter:blur(8px);border-bottom:1px solid #eadcd6;z-index:10}
-header .wrap{display:flex;justify-content:space-between;align-items:center;height:62px}
-.logo{font-size:1.3rem;letter-spacing:.08em;color:var(--acc2)}
-.btn{display:inline-block;font-family:system-ui,sans-serif;background:var(--acc);color:#fff;font-weight:600;padding:13px 28px;border-radius:999px;transition:.25s}
-.btn:hover{background:var(--acc2);transform:translateY(-2px);box-shadow:0 8px 20px #c7857a55}
-.btn.s{padding:9px 20px;font-size:.9rem}
-.hero{padding:96px 0 90px;text-align:center;background:radial-gradient(700px 320px at 50% -10%,#f1d5cd,transparent)}
-.kicker{font-family:system-ui,sans-serif;color:var(--oro);letter-spacing:.2em;text-transform:uppercase;font-size:.8rem;margin-bottom:16px}
-.hero h1{font-weight:400;font-size:clamp(2rem,6vw,3.3rem);line-height:1.15;max-width:720px;margin:0 auto}
-.hero h1 em{color:var(--acc2)}
-.hero p{color:var(--suave);max-width:520px;margin:18px auto 28px}
-section{padding:68px 0}
-h2{font-weight:400;font-size:1.9rem;text-align:center;margin-bottom:6px}
-.sub{text-align:center;color:var(--suave);margin-bottom:34px;font-family:system-ui,sans-serif;font-size:.95rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
-.card{background:var(--panel);border-radius:20px;padding:28px;box-shadow:0 4px 22px #c7857a14;transition:.3s}
-.card:hover{transform:translateY(-5px);box-shadow:0 10px 30px #c7857a2a}
-.card .ic{font-size:1.8rem}
-.card h3{font-weight:400;font-size:1.2rem;color:var(--acc2);margin:8px 0 6px}
-.card p{color:var(--suave);font-family:system-ui,sans-serif;font-size:.93rem}
-.card .pr{display:block;margin-top:12px;font-family:system-ui,sans-serif;font-weight:600;color:var(--txt)}
-.alt{background:#fff}
-.ba{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-.ph{position:relative;overflow:hidden;height:260px;border-radius:18px;background:linear-gradient(135deg,#f1d5cd,#ead7c6);display:grid;place-items:center;color:var(--suave);font-family:system-ui,sans-serif;font-size:.85rem;text-align:center;padding:12px}
-.cierre{text-align:center;background:linear-gradient(135deg,#c7857a,#b3695d);color:#fff}
-.cierre h2{color:#fff}.cierre p{opacity:.92;margin:8px 0 24px;font-family:system-ui,sans-serif}
-.cierre .btn{background:#fff;color:var(--acc2)}
-.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}.ph:hover img{transform:scale(1.05)}.ph span{position:absolute;left:14px;bottom:14px;background:#fffd;color:var(--txt);padding:6px 14px;border-radius:999px}
-.hero-img{max-width:860px;margin:44px auto 0;height:340px;border-radius:24px;overflow:hidden;box-shadow:0 20px 50px #c7857a33}.hero-img img{width:100%;height:100%;object-fit:cover}
-@media(max-width:640px){.hero-img{height:220px}}
-footer{padding:22px 0;text-align:center;color:var(--suave);font-size:.85rem;font-family:system-ui,sans-serif}
-.wa{position:fixed;right:18px;bottom:18px;background:#25d366;color:#fff;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:1.7rem;box-shadow:0 6px 18px #0004;z-index:20}
-.reveal{opacity:0;transform:translateY(20px);transition:all .7s}.reveal.on{opacity:1;transform:none}
-.demo-ribbon{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;display:flex;gap:10px;align-items:center;background:#0b0f14e6;color:#e8eef5;font:600 .78rem/1 system-ui,sans-serif;padding:9px 14px;border-radius:999px;box-shadow:0 6px 20px #0005;backdrop-filter:blur(6px);white-space:nowrap}
-.demo-ribbon a{color:#3ddc97}.embed .demo-ribbon{display:none}
-@media(max-width:640px){.demo-ribbon{bottom:auto;top:auto;position:static;transform:none;justify-content:center;border-radius:0;box-shadow:none}}
-:root{--fx:#c7857a}
-</style>
+<link rel="stylesheet" href="estilo.css">
 <link rel="stylesheet" href="../_fx/fx.css">
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","name":"Nácar Estética","address":{"@type":"PostalAddress","streetAddress":"Gurruchaga 1840","addressLocality":"Palermo, CABA","addressCountry":"AR"},"telephone":"+5491100000000","openingHours":"Tu-Sa 10:00-20:00","priceRange":"$$"}</script>
 </head>
 <body>
-<script>if(top!==self)document.documentElement.classList.add("embed")</script><div class="demo-ribbon">Proyecto demo · datos ficticios <a href="../../">← Volver al portfolio</a></div>
-
+<script>if(top!==self)document.documentElement.classList.add("embed")</script><div class="demo-ribbon">Proyecto demo · Web Profesional · datos ficticios <a href="../../">← Volver al portfolio</a></div>
 <header><div class="wrap">
-  <div class="logo">NÁCAR</div>
-  <a class="btn s" href="https://wa.me/5491100000000?text=Hola!%20Quiero%20reservar%20un%20turno">Reservar turno</a>
+  <a class="logo" href="index.html">NÁCAR</a>
+  <nav class="menu" aria-label="Principal"><a href="index.html" class="activo" aria-current="page">Inicio</a><a href="servicios.html">Tratamientos</a><a href="galeria.html">Galería</a><a href="nosotros.html">Nosotros</a><a href="contacto.html">Contacto</a></nav>
+  <a class="btn s cta-head" href="https://wa.me/5491100000000?text=Hola!%20Quiero%20reservar%20un%20turno">Reservar turno</a>
+  <button class="nav-btn" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
 </div></header>
-
+<main>
 <div class="hero"><div class="wrap">
   <div class="kicker">Centro de estética · Palermo</div>
   <h1>Cuidá tu piel y sentite <em>increíble</em></h1>
   <p>Tratamientos personalizados con profesionales y productos de calidad. Tu primera consulta de diagnóstico incluida.</p>
-  <a class="btn" href="https://wa.me/5491100000000?text=Hola!%20Quiero%20reservar%20un%20turno">Reservar por WhatsApp</a>
+  <div class="cta-row"><a class="btn" href="https://wa.me/5491100000000?text=Hola!%20Quiero%20reservar%20un%20turno">Reservar por WhatsApp</a><a class="btn borde" href="servicios.html">Ver tratamientos y precios</a></div>
   <div class="hero-img"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1400&q=60" alt="Tratamiento facial"></div>
 </div></div>
-
 <section><div class="wrap">
-  <h2 class="reveal">Nuestros tratamientos</h2>
+  <h2 class="reveal">Lo más pedido</h2>
   <p class="sub reveal">Precios por sesión. Consultá por packs y promociones.</p>
-  <div class="grid">
-    <div class="card reveal"><div class="ic">🌸</div><h3>Limpieza facial profunda</h3><p>Renová tu piel con una limpieza adaptada a tu tipo.</p><span class="pr">$28.000</span></div>
-    <div class="card reveal"><div class="ic">✨</div><h3>Tratamientos antiage</h3><p>Rejuvenecimiento y firmeza para una piel luminosa.</p><span class="pr">$42.000</span></div>
-    <div class="card reveal"><div class="ic">💫</div><h3>Depilación láser</h3><p>Resultados duraderos, con equipamiento profesional.</p><span class="pr">desde $19.000</span></div>
-    <div class="card reveal"><div class="ic">🧖‍♀️</div><h3>Masajes y corporales</h3><p>Relajación y modelado para cuerpo y mente.</p><span class="pr">$35.000</span></div>
-    <div class="card reveal"><div class="ic">💅</div><h3>Manos y pies</h3><p>Manicuría, belleza de uñas y spa de pies.</p><span class="pr">$16.000</span></div>
-    <div class="card reveal"><div class="ic">👁️</div><h3>Cejas y pestañas</h3><p>Diseño, lifting y perfilado natural.</p><span class="pr">$22.000</span></div>
-  </div>
+  <div class="grid"><div class="card reveal"><div class="ic">🌸</div><h3>Limpieza facial profunda</h3><p>Renová tu piel con una limpieza adaptada a tu tipo.</p><span class="pr">$28.000</span></div><div class="card reveal"><div class="ic">✨</div><h3>Tratamientos antiage</h3><p>Rejuvenecimiento y firmeza para una piel luminosa.</p><span class="pr">$42.000</span></div><div class="card reveal"><div class="ic">🧖‍♀️</div><h3>Masajes y corporales</h3><p>Relajación y modelado para cuerpo y mente.</p><span class="pr">$35.000</span></div></div>
+  <a class="mas reveal" href="servicios.html">Ver todos los tratamientos →</a>
 </div></section>
-
 <section class="alt"><div class="wrap">
   <h2 class="reveal">Nuestro espacio</h2>
   <p class="sub reveal">Un lugar pensado para que te desconectes desde que entrás.</p>
@@ -91,8 +40,8 @@ footer{padding:22px 0;text-align:center;color:var(--suave);font-size:.85rem;font
     <div class="ph reveal"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=70" alt="Aplicación de sérum" loading="lazy"><span>Cosmética profesional</span></div>
     <div class="ph reveal"><img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=800&q=70" alt="Sala del centro" loading="lazy"><span>Nuestro centro</span></div>
   </div>
+  <a class="mas reveal" href="galeria.html">Ver la galería completa →</a>
 </div></section>
-
 <section><div class="wrap">
   <h2 class="reveal">Reservá en 3 pasos</h2>
   <p class="sub reveal">Simple y sin vueltas.</p>
@@ -102,18 +51,33 @@ footer{padding:22px 0;text-align:center;color:var(--suave);font-size:.85rem;font
     <div class="card reveal"><h3>3. Disfrutá</h3><p>Venís y te encargás solo de relajarte.</p></div>
   </div>
 </div></section>
-
 <section class="cierre"><div class="wrap">
   <h2 class="reveal">Tu turno te espera</h2>
   <p class="reveal">Gurruchaga 1840, Palermo, CABA · Martes a sábado de 10 a 20 h</p>
-  <a class="btn" href="https://wa.me/5491100000000?text=Hola!%20Quiero%20reservar%20un%20turno">Escribir por WhatsApp</a>
+  <a class="btn" href="contacto.html">Reservar turno</a>
 </div></section>
-
-<footer>© 2026 Nácar Estética. Todos los derechos reservados.</footer>
-<a class="wa" href="https://wa.me/5491100000000" aria-label="WhatsApp">💬</a>
+</main>
+<footer class="pie"><div class="wrap">
+  <div class="pie-grid">
+    <div><div class="logo">NÁCAR</div><p style="margin-top:10px;opacity:.85">Centro de estética en Palermo. Tratamientos faciales, corporales y depilación con profesionales.</p></div>
+    <div><h4>Secciones</h4><ul><li><a href="index.html">Inicio</a></li><li><a href="servicios.html">Tratamientos</a></li><li><a href="galeria.html">Galería</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+    <div><h4>Contacto</h4><ul><li>Gurruchaga 1840, Palermo, CABA</li><li>Martes a sábado de 10 a 20 h</li><li><a href="https://wa.me/5491100000000?text=Hola!%20Quiero%20reservar%20un%20turno">WhatsApp</a></li></ul></div>
+  </div>
+  <p class="copy">© 2026 Nácar Estética. Todos los derechos reservados.</p>
+</div></footer>
+<a class="wa" href="https://wa.me/5491100000000?text=Hola!" aria-label="WhatsApp">💬</a>
 <script>
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.15});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const nb=document.querySelector('.nav-btn');nb&&nb.addEventListener('click',()=>{const o=document.body.classList.toggle('menu-abierto');nb.setAttribute('aria-expanded',o)});
+const lb=document.querySelector('.lightbox');
+if(lb){const img=lb.querySelector('img'),cap=lb.querySelector('p');
+document.querySelectorAll('.galeria figure').forEach(f=>{f.tabIndex=0;const abrir=()=>{img.src=f.dataset.full;img.alt=f.querySelector('img').alt;cap.textContent=f.querySelector('figcaption').textContent;lb.classList.add('ver')};f.addEventListener('click',abrir);f.addEventListener('keydown',e=>{if(e.key==='Enter')abrir()})});
+lb.addEventListener('click',()=>lb.classList.remove('ver'));addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('ver')})}
+const fm=document.querySelector('form.consulta');
+fm&&fm.addEventListener('submit',e=>{e.preventDefault();const d=new FormData(fm);
+const t='Hola! Soy '+d.get('nombre')+'. Consulto por: '+d.get('motivo')+(d.get('mensaje')?'. '+d.get('mensaje'):'');
+const a=document.createElement('a');a.href=fm.dataset.wa+'?text='+encodeURIComponent(t);a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove()});
 </script>
 <script src="../_fx/fx.js" defer></script>
 </body>
