@@ -64,7 +64,7 @@ const hex = (c) => String(c).replace('#', '').toLowerCase();
 const oscurecer = (c, k = 0.72) => hex(c).match(/../g).map((v) => Math.round(parseInt(v, 16) * k).toString(16).padStart(2, '0')).join('');
 const escapar = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-// "11 2524-1787" o "+54 9 11 2524 1787" -> WhatsApp 5491125241787, teléfono +541125241787
+// "11 1234-5678" o "+54 9 11 1234 5678" -> WhatsApp 5491112345678, teléfono +541112345678
 function telefonos(t) {
   let d = String(t).replace(/\D/g, '');
   if (d.startsWith('549')) d = d.slice(3);
@@ -75,7 +75,7 @@ function telefonos(t) {
     const m = [2, 3, 4].map((n) => d.slice(n, n + 2) === '15' && d.slice(0, n) + d.slice(n + 2)).find(Boolean);
     if (m) d = m;
   }
-  if (d.length !== 10) throw new Error(`teléfono "${t}": se esperaban 10 dígitos con código de área (ej: 11 2524-1787)`);
+  if (d.length !== 10) throw new Error(`teléfono "${t}": se esperaban 10 dígitos con código de área (ej: 11 1234-5678)`);
   return { wa: `549${d}`, tel: `+54${d}` };
 }
 

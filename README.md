@@ -32,7 +32,7 @@ número ficticio y muestran un aviso en lugar de abrir WhatsApp.
 ## Borradores para clientes
 1. Copiá `clientes/_ejemplo.json` como `clientes/<nombre-del-cliente>.json` y completá los datos.
    - `demo`: `odontologo`, `estetica`, `suplementos` o `servicio-tecnico`
-   - Obligatorios: `nombre`, `whatsapp` (con código de área, ej. `11 2524-1787`)
+   - Obligatorios: `nombre`, `whatsapp` (con código de área, ej. `11 1234-5678`)
    - Opcionales: `logo`, `barrio`, `ciudad`, `direccion`, `horario`, `matricula`,
      `presentacion` y `obrasSociales` (odontólogo), `zona` y `barrios` (servicio técnico),
      `colores.principal` y `colores.secundario` (ej. `#7c5cff`)
