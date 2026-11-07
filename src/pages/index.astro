@@ -61,7 +61,6 @@ const stack = ['Astro', 'HTML5', 'CSS3', 'JavaScript', 'Diseño responsive', 'Gi
 const contactos = [
   LINKEDIN && { label: 'LinkedIn', href: LINKEDIN },
   GITHUB && { label: 'GitHub', href: GITHUB },
-  EMAIL && { label: 'Email', href: `mailto:${EMAIL}` },
 ].filter(Boolean) as { label: string; href: string }[];
 ---
 <Base
