@@ -1,0 +1,43 @@
+/* Efectos interactivos compartidos por las demos.
+   Cada demo define su color con --fx (y opcionalmente --fx-sombra) en :root. */
+
+/* (sin valores por defecto en :root: este archivo carga después y pisaría el color de cada demo) */
+
+/* Barra de progreso de lectura */
+.fx-progreso { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 100; background: var(--fx); transform: scaleX(0); transform-origin: left; pointer-events: none; }
+
+/* Tarjetas con brillo que sigue al mouse */
+.fx-g { position: relative; isolation: isolate; transition: opacity .6s, transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s, border-color .4s !important; }
+.fx-luz { position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .35s; background: radial-gradient(300px circle at var(--x, 50%) var(--y, 0%), color-mix(in srgb, var(--fx) 18%, transparent), transparent 70%); }
+.fx-g:hover .fx-luz { opacity: 1; }
+.fx-g.on:hover, .fx-g:not(.reveal):hover { transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-6px); box-shadow: var(--fx-sombra, 0 18px 40px color-mix(in srgb, var(--fx) 22%, #0000)), 0 0 0 1px color-mix(in srgb, var(--fx) 45%, transparent); border-color: color-mix(in srgb, var(--fx) 60%, transparent); }
+
+/* Íconos que reaccionan */
+.fx-ico { display: inline-block; transition: transform .45s cubic-bezier(.2,.8,.2,1); }
+.fx-g:hover .fx-ico { transform: rotate(-10deg) scale(1.2); }
+
+/* Etiquetas y chips */
+.fx-chip { display: inline-block; transition: transform .25s cubic-bezier(.2,.8,.2,1), background .25s, color .25s, border-color .25s, box-shadow .25s; cursor: default; }
+.fx-chip:hover { transform: translateY(-3px); background: var(--fx) !important; border-color: var(--fx) !important; color: #fff !important; box-shadow: 0 8px 18px color-mix(in srgb, var(--fx) 35%, transparent); }
+
+/* Botones con reflejo de luz */
+.btn { position: relative; overflow: hidden; }
+.btn::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(110deg, transparent 30%, #ffffff66 50%, transparent 70%); transform: translateX(-120%); transition: transform .6s; }
+.btn:hover::after { transform: translateX(120%); }
+.btn:hover { transform: translateY(-3px); }
+
+/* Luz que sigue al cursor en la portada */
+.fx-hero { position: relative; isolation: isolate; }
+.fx-hero > .fx-luz-hero { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: 0; transition: opacity .5s; background: radial-gradient(520px circle at var(--x, 50%) var(--y, 50%), #ffffff26, transparent 65%); }
+.fx-hero:hover > .fx-luz-hero { opacity: 1; }
+.fx-hero > :not(.fx-luz-hero) { position: relative; z-index: 1; }
+
+/* Botón flotante de WhatsApp con pulso */
+.wa { animation: fx-pulso 2.4s infinite; }
+@keyframes fx-pulso { 0% { box-shadow: 0 0 0 0 #25d36688, 0 6px 18px #0004; } 70% { box-shadow: 0 0 0 14px #25d36600, 0 6px 18px #0004; } 100% { box-shadow: 0 0 0 0 #25d36600, 0 6px 18px #0004; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-g, .fx-ico, .fx-chip, .btn, .btn::after, .wa { transition: none !important; animation: none !important; }
+  .fx-g:hover, .fx-chip:hover, .btn:hover { transform: none !important; }
+}
+.ph > .fx-luz { z-index: 1; background: radial-gradient(300px circle at var(--x, 50%) var(--y, 0%), #ffffff40, transparent 70%); }
