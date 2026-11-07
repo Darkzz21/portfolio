@@ -1,0 +1,13 @@
+{
+  "demo": "odontologo",
+  "nombre": "Consultorio Dental Sonrisas",
+  "whatsapp": "11 2524-1787",
+  "barrio": "Caballito",
+  "ciudad": "CABA",
+  "direccion": "Av. Rivadavia 4800, 2° A",
+  "horario": "Lunes a viernes de 10 a 19 h",
+  "presentacion": "El Dr. Martín Gómez es odontólogo con 15 años de experiencia. En el consultorio te explicamos cada tratamiento y trabajamos sin apuro.",
+  "matricula": "45.123",
+  "obrasSociales": "OSDE y Swiss Medical",
+  "colores": { "principal": "#7c5cff", "secundario": "#1e3a8a" }
+}

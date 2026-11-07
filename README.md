@@ -28,3 +28,16 @@ número ficticio y muestran un aviso en lugar de abrir WhatsApp.
 
 ## Compartir
 `public/og.png` es la imagen que aparece al compartir el link (LinkedIn, WhatsApp).
+
+## Borradores para clientes
+1. Copiá `clientes/_ejemplo.json` como `clientes/<nombre-del-cliente>.json` y completá los datos.
+   - `demo`: `odontologo`, `estetica`, `suplementos` o `servicio-tecnico`
+   - Obligatorios: `nombre`, `whatsapp` (con código de área, ej. `11 2524-1787`)
+   - Opcionales: `logo`, `barrio`, `ciudad`, `direccion`, `horario`, `matricula`,
+     `presentacion` y `obrasSociales` (odontólogo), `zona` y `barrios` (servicio técnico),
+     `colores.principal` y `colores.secundario` (ej. `#7c5cff`)
+2. `npm run clientes` genera el borrador en `public/clientes/<slug>/` (también se genera solo al publicar).
+3. Push a `main`: queda online en `https://darkzz21.github.io/portfolio/clientes/<slug>/`.
+
+Los borradores no aparecen en el portfolio ni en Google (`noindex`). Catálogo, precios, reseñas y
+fotos siguen siendo los de la demo: ajustalos a mano en el HTML generado o pedímelo.
