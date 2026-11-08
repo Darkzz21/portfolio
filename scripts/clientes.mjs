@@ -59,7 +59,12 @@ const BASES = {
   },
 };
 
-const slugify = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+// Cuenta de Instagram ficticia de cada demo
+const IG_DEMO = { odontologo: 'prismadental.demo', estetica: 'nacarestetica.demo', suplementos: 'forjasupps.demo', 'servicio-tecnico': 'hidroclima.demo' };
+// "@minegocio", "minegocio" o "https://instagram.com/minegocio/" -> "minegocio"
+const usuarioIg = (s) => String(s).trim().replace(/^https?:\/\/(www\.)?instagram\.com\//i, '').replace(/^@/, '').replace(/[/?#].*$/, '');
+
+const slugify =(s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const hex = (c) => String(c).replace('#', '').toLowerCase();
 const oscurecer = (c, k = 0.72) => hex(c).match(/../g).map((v) => Math.round(parseInt(v, 16) * k).toString(16).padStart(2, '0')).join('');
 const escapar = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -136,6 +141,10 @@ function generar(archivo) {
       s = s.split(`tel:+${DEMO_WA}`).join(`tel:${t.tel}`).split(`+${DEMO_WA}`).join(t.tel).split(DEMO_WA).join(t.wa);
       // Rutas: el borrador vive en /clientes/<slug>/ y usa los efectos de /demos/_fx/
       s = s.split('../_fx/').join('../../demos/_fx/');
+      // Instagram del cliente, o se quitan los bloques de Instagram si no tiene
+      s = datos.instagram
+        ? s.split(IG_DEMO[datos.demo]).join(escapar(usuarioIg(datos.instagram)))
+        : s.replace(/<!--ig-->[\s\S]*?<!--\/ig-->\n?/g, '');
       // Franja de borrador + no indexar en Google
       s = s.replace(/<div class="demo-ribbon">[\s\S]*?<\/div>/, `<div class="demo-ribbon">Borrador para ${escapar(datos.nombre)} · <a href="../../">diseñado por Flavio</a></div>`);
       s = s.replace('<meta charset="UTF-8">', '<meta charset="UTF-8">\n<meta name="robots" content="noindex">');
