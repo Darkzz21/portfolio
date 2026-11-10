@@ -24,6 +24,13 @@
   <h1>Pedí tu turno</h1>
   <p class="lead">Escribinos y te respondemos en el día.</p>
 </div></section>
+<!-- Turnos online con Cal.com: pegá el link del evento en data-cal-link (ej: "mi-usuario/consulta"). Vacío = la sección no se muestra. -->
+<section class="turnos alt" id="turnos" data-cal-link="flavio-lovera-8syg8x" hidden><div class="wrap">
+  <h2>Sacá tu turno online</h2>
+  <p class="sub">Elegí el día y el horario que te quede mejor. Te llega la confirmación por mail al instante.</p>
+  <div class="cal-turnos" id="cal-turnos"><p class="cal-cargando">Cargando el calendario…</p></div>
+  <p class="cal-alt">¿Preferís escribirnos? Más abajo tenés el WhatsApp y el formulario.</p>
+</div></section>
 <section><div class="wrap">
   <div class="contacto-grid">
     <div class="datos-lista">
@@ -65,6 +72,14 @@ const fm=document.querySelector('form.consulta');
 fm&&fm.addEventListener('submit',e=>{e.preventDefault();const d=new FormData(fm);
 const t='Hola! Soy '+d.get('nombre')+'. Consulto por: '+d.get('motivo')+(d.get('mensaje')?'. '+d.get('mensaje'):'');
 const a=document.createElement('a');a.href=fm.dataset.wa+'?text='+encodeURIComponent(t);a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove()});
+// Turnos online: carga el calendario de Cal.com solo si la sección tiene un link configurado
+const tu=document.querySelector('.turnos');
+if(tu&&tu.dataset.calLink){tu.hidden=false;
+(function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement('script')).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const ns=ar[1];api.q=api.q||[];if(typeof ns==='string'){cal.ns[ns]=cal.ns[ns]||api;p(cal.ns[ns],ar);p(cal,['initNamespace',ns])}else p(cal,ar);return}p(cal,ar)}})(window,'https://app.cal.com/embed/embed.js','init');
+Cal('init',{origin:'https://cal.com'});
+Cal('inline',{elementOrSelector:'#cal-turnos',calLink:tu.dataset.calLink,config:{layout:'month_view',theme:'light'}});
+Cal('ui',{theme:'light',layout:'month_view',cssVarsPerTheme:{light:{'cal-brand':getComputedStyle(document.documentElement).getPropertyValue('--azul').trim()}}});
+Cal('on',{action:'linkReady',callback:()=>{const c=tu.querySelector('.cal-cargando');c&&c.remove()}})}
 </script>
 <script src="../_fx/fx.js" defer></script>
 </body>

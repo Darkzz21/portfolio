@@ -175,6 +175,9 @@ function generar(archivo) {
       s = datos.instagram
         ? s.split(IG_DEMO[datos.demo]).join(escapar(usuarioIg(datos.instagram)))
         : s.replace(/<!--ig-->[\s\S]*?<!--\/ig-->\n?/g, '');
+      // Turnos online: link de Cal.com del cliente ("https://cal.com/usuario/evento" o "usuario/evento"); sin él, la sección queda oculta
+      const cal = String(datos.turnos || '').trim().replace(/^https?:\/\/(app\.|www\.)?cal\.com\//i, '').replace(/[?#].*$/, '').replace(/^\/|\/$/g, '');
+      s = s.replace(/data-cal-link="[^"]*"/g, `data-cal-link="${escapar(cal)}"`);
       // Franja de borrador + no indexar en Google
       s = s.replace(/<div class="demo-ribbon">[\s\S]*?<\/div>/, `<div class="demo-ribbon">Borrador para ${escapar(datos.nombre)} · <a href="../../">diseñado por Flavio</a></div>`);
       s = s.replace('<meta charset="UTF-8">', '<meta charset="UTF-8">\n<meta name="robots" content="noindex">');

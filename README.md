@@ -38,7 +38,8 @@ número ficticio y muestran un aviso en lugar de abrir WhatsApp.
    - Obligatorios: `nombre`, `whatsapp` (con código de área, ej. `11 1234-5678`)
    - Opcionales: `logo`, `barrio`, `ciudad`, `direccion`, `horario`, `matricula`,
      `instagram` (si no tiene, se quita esa sección), `presentacion` y `obrasSociales` (odontólogo), `zona` y `barrios` (servicio técnico y fletes),
-     `colores.principal` y `colores.secundario` (ej. `#7c5cff`)
+     `colores.principal` y `colores.secundario` (ej. `#7c5cff`),
+     `turnos` (odontólogo): link de Cal.com para sacar turno online, ej. `https://cal.com/usuario/consulta`. Sin él, esa sección no se muestra
 2. `npm run clientes` genera el borrador en `public/clientes/<slug>/` (también se genera solo al publicar).
 3. Push a `main`: queda online en `https://darkzz21.github.io/portfolio/clientes/<slug>/`.
 

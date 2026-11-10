@@ -124,3 +124,8 @@ h2{font-size:1.7rem;color:var(--azul2);margin-bottom:8px}
 form.consulta button{background:var(--menta);color:#fff;font-weight:700;padding:14px;border-radius:999px}
 footer.pie{background:var(--azul2);color:#dfeaf1}
 footer.pie .logo{color:#fff}
+/* Turnos online (Cal.com) */
+.turnos[hidden]{display:none}
+.cal-turnos{min-height:520px;border-radius:18px;overflow:hidden;background:var(--fondo);border:1px solid #0e5a8a22}
+.cal-cargando{padding:60px 20px;text-align:center;color:var(--suave)}
+.cal-alt{text-align:center;color:var(--suave);font-size:.92rem;margin-top:16px}
