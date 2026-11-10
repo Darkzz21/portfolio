@@ -51,6 +51,33 @@ const proyectos = [
     tags: ['Mobile first', 'Click to call', 'Conversión'],
     color: '#0b64b0',
   },
+  {
+    nombre: 'Lúa Studio',
+    rubro: 'Belleza · Uñas, pestañas y cejas',
+    plan: 'Web con catálogo',
+    desc: 'Catálogo de 12 servicios con filtros y buscador: la clienta arma su turno, ve el total y la duración, y lo reserva por WhatsApp con todo detallado.',
+    url: `${base}/demos/estetica-integral/index.html`,
+    tags: ['Armá tu turno', 'Total y duración', 'Reserva por WhatsApp'],
+    color: '#c2376b',
+  },
+  {
+    nombre: 'Aura Láser',
+    rubro: 'Belleza · Depilación láser',
+    plan: 'Web Profesional',
+    desc: 'Sitio de 5 páginas: precios por zona para mujeres y hombres, packs con ahorro, preguntas frecuentes, galería, equipo y reserva de evaluación con mapa.',
+    url: `${base}/demos/depilacion/index.html`,
+    tags: ['5 páginas', 'Precios por zona', 'Packs y promos'],
+    color: '#6a4de0',
+  },
+  {
+    nombre: 'Rumbo Fletes',
+    rubro: 'Servicios · Fletes y mudanzas',
+    plan: 'Web Express',
+    desc: 'Una sola página con cotizador: el cliente indica origen, destino y carga, y el pedido llega armado por WhatsApp. Vehículos, zonas y barra fija para llamar.',
+    url: `${base}/demos/fletes/index.html`,
+    tags: ['Cotizador', 'Click to call', 'Mobile first'],
+    color: '#ffb000',
+  },
 ];
 
 // Íconos de línea (SVG) para las tarjetas de "Cómo trabajo"
@@ -82,7 +109,7 @@ const habilidades = [
     resumen: 'Interfaces con identidad propia, pensadas para el usuario.',
     items: [
       { n: 'Mobile first', d: 'Primero se diseña para el celular y después se amplía al escritorio.', en: 'Barra fija de llamada en HidroClima' },
-      { n: 'Diseño de interfaces', d: 'Jerarquía visual, espaciados y componentes consistentes.', en: 'Las 4 demos' },
+      { n: 'Diseño de interfaces', d: 'Jerarquía visual, espaciados y componentes consistentes.', en: 'Todas las demos' },
       { n: 'Color y tipografía', d: 'Cada marca con su propia paleta y tipografía según el rubro.', en: 'Estilo editorial serif de Nácar Estética' },
       { n: 'UX y conversión', d: 'Recorridos simples que llevan a la acción: turno, pedido o consulta.', en: 'Turnos por WhatsApp en Prisma Dental' },
       { n: 'Dirección de arte', d: 'Selección de fotografía y tratamiento con overlays y degradados.', en: 'Portadas de Forja Supps y HidroClima' },
@@ -169,7 +196,7 @@ const contactos = [
         <li class="glow stat rv" style="--c:#ff6a1a"><b data-n={proyectos.length}>{proyectos.length}</b><span>proyectos</span></li>
         <li class="glow stat rv" style="--c:#3ddc97"><b data-n="100" data-suf="%">100%</b><span>responsive</span></li>
         <li class="glow stat rv" style="--c:#4da3ff"><b data-n={habilidades.reduce((n, h) => n + h.items.length, 0)}>{habilidades.reduce((n, h) => n + h.items.length, 0)}</b><span>habilidades</span></li>
-        <li class="glow stat rv" style="--c:#b18cff"><b data-n="4">4</b><span>rubros distintos</span></li>
+        <li class="glow stat rv" style="--c:#b18cff"><b data-n={proyectos.length}>{proyectos.length}</b><span>rubros distintos</span></li>
       </ul>
     </div>
   </section>

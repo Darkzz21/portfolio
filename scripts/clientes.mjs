@@ -57,10 +57,40 @@ const BASES = {
     },
     colores: { principal: ['0b64b0'], principalOscuro: ['084a85'], secundario: ['ff9f1c'] },
   },
+  fletes: {
+    textos: {
+      logo: ['RUMBO<small>fletes</small>'],
+      nombre: ['Rumbo Fletes y Mudanzas', 'Rumbo Fletes'],
+      zona: ['Zona Oeste'],
+      horario: ['Lunes a sábado de 7 a 20 h'],
+      barrios: ['<span>Ramos Mejía</span><span>Haedo</span><span>Morón</span><span>Castelar</span><span>Ituzaingó</span><span>San Justo</span><span>Liniers</span>'],
+    },
+    colores: { principal: ['263238'], principalOscuro: ['1a2329'], secundario: ['ffb000'] },
+  },
+  depilacion: {
+    textos: {
+      logo: ['aura<span>láser</span>'],
+      nombre: ['Aura Láser'],
+      barrio: ['Recoleta'],
+      direccion: ['Av. Santa Fe 1960'],
+      horario: ['Lunes a sábado de 9 a 21 h'],
+    },
+    colores: { principal: ['6a4de0'], principalOscuro: ['4c37a3'] },
+  },
+  'estetica-integral': {
+    textos: {
+      logo: ['Lúa<span>studio</span>'],
+      nombre: ['Lúa Studio'],
+      barrio: ['Villa Crespo'],
+      direccion: ['Av. Corrientes 5120'],
+      horario: ['Lunes a sábado de 10 a 20 h'],
+    },
+    colores: { principal: ['c2376b'], principalOscuro: ['8b274d'] },
+  },
 };
 
 // Cuenta de Instagram ficticia de cada demo
-const IG_DEMO = { odontologo: 'prismadental.demo', estetica: 'nacarestetica.demo', suplementos: 'forjasupps.demo', 'servicio-tecnico': 'hidroclima.demo' };
+const IG_DEMO = { odontologo: 'prismadental.demo', estetica: 'nacarestetica.demo', suplementos: 'forjasupps.demo', 'servicio-tecnico': 'hidroclima.demo', fletes: 'rumbofletes.demo', depilacion: 'auralaser.demo', 'estetica-integral': 'luastudio.demo' };
 // "@minegocio", "minegocio" o "https://instagram.com/minegocio/" -> "minegocio"
 const usuarioIg = (s) => String(s).trim().replace(/^https?:\/\/(www\.)?instagram\.com\//i, '').replace(/^@/, '').replace(/[/?#].*$/, '');
 

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lúa Studio | Uñas, pestañas y cejas en Villa Crespo, CABA</title>
+<meta name="description" content="Estética integral en Villa Crespo, CABA: uñas, pestañas, cejas y más. Elegí tus servicios, mirá el total y reservá tu turno por WhatsApp.">
+<style>
+:root{--bg:#fff8f5;--panel:#fff;--borde:#f1dfe0;--txt:#2b1d2a;--suave:#75606f;--acc:#c2376b;--acc2:#8b274d;--crema:#fdeee9}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;background:#fff8f5ee;backdrop-filter:blur(8px);border-bottom:1px solid var(--borde);z-index:30}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;height:64px}
+.logo{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:1.6rem;line-height:1;color:var(--acc2)}
+.logo span{font-family:system-ui,sans-serif;font-style:normal;font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--txt);margin-left:8px}
+.head-links{display:flex;gap:22px;font-size:.92rem;color:var(--suave)}
+.head-links a:hover{color:var(--acc2)}
+@media(max-width:700px){.head-links{display:none}}
+.btn{display:inline-block;background:var(--acc);color:#fff;font-weight:700;padding:13px 26px;border-radius:999px;border:0;transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{background:var(--acc2);transform:translateY(-2px);box-shadow:0 8px 22px #c2376b44}
+.carrito-btn{position:relative;display:flex;align-items:center;gap:8px;background:var(--panel);color:var(--txt);border:1px solid var(--borde);border-radius:999px;padding:9px 16px;font-weight:700;transition:border-color .2s}
+.carrito-btn:hover{border-color:var(--acc)}
+.carrito-btn .cant{min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--acc);color:#fff;font-size:.78rem;display:grid;place-items:center}
+.carrito-btn.salto{animation:salto .4s}
+@keyframes salto{40%{transform:scale(1.12)}}
+.hero{padding:64px 0 72px;background:radial-gradient(600px 340px at 100% 0%,#c2376b1c,transparent),var(--crema)}
+.hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:center}
+.hero h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(2.1rem,6.4vw,3.6rem);line-height:1.08}
+.hero h1 em{color:var(--acc)}
+.hero p{color:var(--suave);max-width:500px;margin:18px 0 28px;font-size:1.08rem}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px;font-size:.88rem;color:var(--suave)}
+.chips span{background:#fff;border:1px solid var(--borde);border-radius:999px;padding:6px 14px}
+.fotos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fotos img{width:100%;height:100%;object-fit:cover;border-radius:22px;aspect-ratio:3/4}
+.fotos img:first-child{margin-top:34px}
+@media(max-width:820px){.hero-grid{grid-template-columns:1fr}.fotos img{aspect-ratio:4/3}.fotos img:first-child{margin-top:0}}
+section{padding:64px 0}
+h2{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(1.7rem,4vw,2.2rem);margin-bottom:6px}
+.sub{color:var(--suave);margin-bottom:24px}
+/* Servicios */
+.filtros{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:22px}
+.cats{display:flex;flex-wrap:wrap;gap:8px}
+.cat{background:var(--panel);color:var(--txt);border:1px solid var(--borde);border-radius:999px;padding:8px 16px;font-weight:600;font-size:.9rem;transition:.2s}
+.cat:hover{border-color:var(--acc)}
+.cat.activa{background:var(--acc);border-color:var(--acc);color:#fff}
+.herr input{font:inherit;width:210px;background:var(--panel);color:var(--txt);border:1px solid var(--borde);border-radius:999px;padding:9px 16px}
+.herr input:focus{outline:2px solid var(--acc);outline-offset:1px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.prod{position:relative;display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--borde);border-radius:20px;overflow:hidden;transition:.25s}
+.prod[hidden]{display:none}
+.prod.elegido{border-color:var(--acc);box-shadow:0 0 0 2px #c2376b33}
+.img{height:170px;overflow:hidden;background:var(--crema)}
+.img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.prod:hover .img img{transform:scale(1.07)}
+.etiqueta{position:absolute;top:12px;left:12px;z-index:2;background:#fff;color:var(--acc2);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;padding:4px 10px;border-radius:999px}
+.prod .i{padding:16px;display:flex;flex-direction:column;flex:1}
+.prod h3{font-size:1.02rem;line-height:1.3}
+.marca{color:var(--acc2);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.desc{color:var(--suave);font-size:.88rem;margin-top:4px}
+.pie-prod{margin-top:auto;padding-top:14px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.precio{font-weight:800;font-size:1.15rem}.precio small{display:block;font-weight:500;font-size:.8rem;color:var(--suave)}
+.agregar{background:var(--acc);color:#fff;border:1px solid var(--acc);border-radius:999px;padding:9px 16px;font-weight:700;font-size:.88rem;transition:transform .2s,background .2s}
+.agregar:hover{transform:translateY(-2px)}
+.agregar[aria-pressed="true"]{background:#fff;color:var(--acc2)}
+.vacio{display:none;text-align:center;color:var(--suave);padding:40px 0}
+.alt{background:#fff}
+.ben{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
+.ben div{background:var(--bg);border:1px solid var(--borde);border-radius:18px;padding:22px}
+.ben b{display:block;margin:6px 0 4px}.ben p{color:var(--suave);font-size:.95rem}
+.cierre{text-align:center;background:linear-gradient(135deg,#8b274d,#c2376b);color:#fff}
+.cierre p{opacity:.92;margin:8px 0 24px}
+.cierre .btn{background:#fff;color:var(--acc2)}
+footer{padding:22px 0;text-align:center;color:var(--suave);font-size:.85rem;border-top:1px solid var(--borde)}
+/* Mi turno */
+.velo{position:fixed;inset:0;background:#2b1d2a99;z-index:60;opacity:0;pointer-events:none;transition:opacity .3s}
+.carrito{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);z-index:70;background:var(--panel);border-left:1px solid var(--borde);display:flex;flex-direction:column;transform:translateX(100%);visibility:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1),visibility .35s}
+.abierto .velo{opacity:1;pointer-events:auto}
+.abierto .carrito{transform:none;visibility:visible}
+.carrito-head{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--borde)}
+.carrito-head h2{font-size:1.35rem;margin:0}
+.cerrar{background:none;border:0;color:var(--txt);font-size:1.6rem;line-height:1;width:40px;height:40px}
+.items{flex:1;overflow:auto;padding:10px 20px}
+.linea{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--borde)}
+.linea img{width:52px;height:52px;border-radius:12px;object-fit:cover}
+.linea b{display:block;font-size:.92rem;line-height:1.3}
+.linea small{color:var(--suave)}
+.quitar{background:none;border:1px solid var(--borde);border-radius:50%;width:32px;height:32px;color:var(--suave);font-size:1.1rem;line-height:1}
+.quitar:hover{border-color:var(--acc);color:var(--acc)}
+.carrito-vacio{color:var(--suave);text-align:center;padding:40px 0}
+.carrito-pie{padding:16px 20px;border-top:1px solid var(--borde);display:grid;gap:10px}
+.carrito-pie label{display:grid;gap:4px;font-size:.82rem;font-weight:700}
+.carrito-pie input{font:inherit;font-weight:400;padding:10px 12px;border-radius:10px;border:1px solid var(--borde);background:#fff;color:var(--txt);width:100%}
+.carrito-pie input:focus{outline:2px solid var(--acc);outline-offset:1px}
+.total{display:flex;justify-content:space-between;font-size:1.15rem;font-weight:800}
+.envio{color:var(--suave);font-size:.85rem}
+.enviar{width:100%;background:#128a50;color:#fff;border:0;border-radius:999px;padding:15px;font-weight:800;font-size:1rem;transition:transform .2s}
+.enviar:hover{transform:translateY(-2px)}
+.enviar:disabled{opacity:.4;transform:none;cursor:not-allowed}
+.wa{position:fixed;right:18px;bottom:18px;background:#25d366;color:#fff;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:1.7rem;box-shadow:0 6px 18px #0004;z-index:20}
+.reveal{opacity:0;transform:translateY(20px);transition:all .6s}.reveal.on{opacity:1;transform:none}
+.demo-ribbon{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;display:flex;gap:10px;align-items:center;background:#0b0f14e6;color:#e8eef5;font:600 .78rem/1 system-ui,sans-serif;padding:9px 14px;border-radius:999px;box-shadow:0 6px 20px #0005;backdrop-filter:blur(6px);white-space:nowrap}
+.demo-ribbon a{color:#3ddc97}.embed .demo-ribbon{display:none}
+@media(max-width:640px){.demo-ribbon{position:static;transform:none;justify-content:center;border-radius:0;box-shadow:none}.herr,.herr input{width:100%}}
+:root{--fx:#c2376b}
+</style>
+<link rel="stylesheet" href="../_fx/fx.css">
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+<script>if(top!==self)document.documentElement.classList.add("embed")</script><div class="demo-ribbon">Proyecto demo · Web con catálogo · datos ficticios <a href="../../">← Volver al portfolio</a></div>
+
+<header><div class="wrap">
+  <a class="logo" href="#">Lúa<span>studio</span></a>
+  <nav class="head-links"><a href="#servicios">Servicios</a><a href="#beneficios">Por qué elegirnos</a><a href="#ubicacion">Dónde estamos</a></nav>
+  <button class="carrito-btn" type="button" aria-label="Ver mi turno">🗓️ Mi turno <span class="cant">0</span></button>
+</div></header>
+
+<div class="hero"><div class="wrap hero-grid">
+  <div>
+    <h1>Uñas, pestañas y cejas, <em>todo en una sola visita</em></h1>
+    <p>Elegí los servicios que querés, mirá el total y la duración, y reservá tu turno por WhatsApp en un minuto.</p>
+    <a class="btn" href="#servicios">Armar mi turno</a>
+    <div class="chips"><span>💅 Esmaltes de primera marca</span><span>🧼 Material esterilizado</span><span>💳 Todos los medios de pago</span></div>
+  </div>
+  <div class="fotos">
+    <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=700&q=65" alt="Manicura trabajando en el estudio">
+    <img src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=700&q=65" alt="Uñas esmaltadas en tonos lila">
+  </div>
+</div></div>
+
+<section id="servicios"><div class="wrap">
+  <h2 class="reveal">Armá tu turno</h2>
+  <p class="sub reveal">Sumá uno o varios servicios. Te confirmamos día y horario por WhatsApp.</p>
+  <div class="filtros">
+    <div class="cats" role="group" aria-label="Categorías"></div>
+    <div class="herr"><input type="search" placeholder="Buscar servicio…" aria-label="Buscar servicio"></div>
+  </div>
+  <div class="grid" id="productos"></div>
+  <p class="vacio">No encontramos servicios con esa búsqueda.</p>
+</div></section>
+
+<section class="alt" id="beneficios"><div class="wrap">
+  <h2 class="reveal">Por qué venir a Lúa Studio</h2>
+  <p class="sub reveal">Un estudio chico, donde te atiende siempre la misma profesional.</p>
+  <div class="ben">
+    <div class="reveal">🧼<b>Higiene de verdad</b><p>Herramientas esterilizadas y limas descartables en cada turno.</p></div>
+    <div class="reveal">⏱️<b>Turnos puntuales</b><p>Sabés cuánto dura tu turno antes de reservar. No te hacemos esperar.</p></div>
+    <div class="reveal">🛡️<b>Garantía de 7 días</b><p>Si se te salta el esmalte en la primera semana, lo retocamos sin cargo.</p></div>
+    <div class="reveal">💬<b>Te asesoramos</b><p>Te ayudamos a elegir el diseño de cejas o el largo de pestañas que mejor te queda.</p></div>
+  </div>
+</div></section>
+
+<!--ubicacion-->
+<section class="ubicacion" id="ubicacion"><div class="wrap">
+  <h2 class="reveal">Dónde nos encontramos</h2>
+  <div class="ubi-grid">
+    <div class="ubi-info reveal">
+      <a class="ubi-pin" href="https://www.google.com/maps/search/?api=1&query=Av.%20Corrientes%205120%2C%20Villa%20Crespo%2C%20CABA" target="_blank" rel="noopener" aria-label="Abrir en Google Maps"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg></a>
+      <p class="ubi-dir">Av. Corrientes 5120, Villa Crespo, CABA</p>
+      <p class="ubi-hor">Lunes a sábado de 10 a 20 h</p>
+      <a class="ubi-btn" href="https://www.google.com/maps/search/?api=1&query=Av.%20Corrientes%205120%2C%20Villa%20Crespo%2C%20CABA" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg> Cómo llegar</a>
+    </div>
+    <div class="ubi-mapa reveal"><iframe src="https://maps.google.com/maps?q=Av.%20Corrientes%205120%2C%20Villa%20Crespo%2C%20CABA&z=15&output=embed" title="Mapa de ubicación" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  </div>
+</div></section>
+<!--/ubicacion-->
+<!--ig-->
+<section class="redes"><div class="wrap">
+  <h2 class="reveal">Seguinos en redes</h2>
+  <p class="redes-sub reveal">Novedades, promociones y trabajos todos los días en Instagram.</p>
+  <a class="ig-btn reveal" href="https://www.instagram.com/luastudio.demo/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.1 3.2.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2ZM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0Zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9Z"/></svg> @luastudio.demo</a>
+</div></section>
+<!--/ig-->
+<section class="cierre" id="local"><div class="wrap">
+  <h2 class="reveal">¿Dudas con algún servicio?</h2>
+  <p class="reveal">Av. Corrientes 5120, Villa Crespo, CABA · Lunes a sábado de 10 a 20 h</p>
+  <a class="btn" href="https://wa.me/5491100000000?text=Hola!%20Quiero%20hacer%20una%20consulta">Escribir por WhatsApp</a>
+</div></section>
+
+<footer>© 2026 Lúa Studio. Todos los derechos reservados.</footer>
+<a class="wa" href="https://wa.me/5491100000000" aria-label="WhatsApp">💬</a>
+
+<div class="velo"></div>
+<aside class="carrito" aria-label="Mi turno" aria-hidden="true">
+  <div class="carrito-head"><h2>Mi turno</h2><button class="cerrar" type="button" aria-label="Cerrar">×</button></div>
+  <div class="items"></div>
+  <div class="carrito-pie">
+    <label>Tu nombre<input class="f-nombre" autocomplete="given-name" placeholder="Ej: Sofía"></label>
+    <label>Día y horario que preferís<input class="f-dia" placeholder="Ej: jueves a la tarde"></label>
+    <div class="total"><span>Total <small class="dur"></small></span><span class="total-monto">$0</span></div>
+    <p class="envio">El turno queda reservado cuando te lo confirmamos por WhatsApp.</p>
+    <button class="enviar" type="button" disabled>Reservar por WhatsApp</button>
+  </div>
+</aside>
+
+<script>
+const WA = 'https://wa.me/5491100000000';
+const U = id => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=600&q=65`;
+// m = duración en minutos
+const SERVICIOS = [
+  { id: 1, n: 'Esmaltado semipermanente', c: 'Uñas', p: 14000, m: 60, d: 'Manos · dura hasta 3 semanas', img: '1607779097040-26e80aa78e66', tag: 'Más pedido' },
+  { id: 2, n: 'Kapping gel', c: 'Uñas', p: 18500, m: 75, d: 'Refuerzo sobre tu uña natural', img: '1610992015732-2449b76344bc' },
+  { id: 3, n: 'Uñas esculpidas', c: 'Uñas', p: 26000, m: 120, d: 'En acrílico o gel, con el largo que elijas', img: '1604654894610-df63bc536371' },
+  { id: 4, n: 'Nail art (por mano)', c: 'Uñas', p: 5000, m: 20, d: 'Diseños a mano alzada, francesitas o brillos', img: '1519014816548-bf5fe059798b', tag: 'Nuevo' },
+  { id: 5, n: 'Manicuría rusa', c: 'Uñas', p: 12000, m: 50, d: 'Limpieza profunda de cutículas con torno', img: '1632345031435-8727f6897d53' },
+  { id: 6, n: 'Pedicuría spa + semipermanente', c: 'Pies', p: 19000, m: 75, d: 'Exfoliación, hidratación y esmaltado', img: '1519415510236-718bdfcd89c8' },
+  { id: 7, n: 'Lifting de pestañas', c: 'Pestañas', p: 20000, m: 60, d: 'Curva natural + tinte · dura 6 a 8 semanas', img: '1487412947147-5cebf100ffc2', tag: 'Más pedido' },
+  { id: 8, n: 'Extensiones pelo a pelo', c: 'Pestañas', p: 32000, m: 120, d: 'Efecto clásico, natural y liviano', img: '1583241800698-e8ab01830a07' },
+  { id: 9, n: 'Service de extensiones', c: 'Pestañas', p: 18000, m: 60, d: 'Mantenimiento cada 3 semanas', img: '1526045478516-99145907023c' },
+  { id: 10, n: 'Perfilado de cejas', c: 'Cejas', p: 9000, m: 30, d: 'Diseño según tu rostro, con pinza e hilo', img: '1531746020798-e6953c6e8e04' },
+  { id: 11, n: 'Laminado de cejas', c: 'Cejas', p: 21000, m: 50, d: 'Cejas peinadas y con más volumen · incluye perfilado', img: '1597225244660-1cd128c64284' },
+  { id: 12, n: 'Maquillaje social', c: 'Maquillaje', p: 35000, m: 60, d: 'Para eventos, con pestañas de regalo', img: '1516975080664-ed2fc6a32937' },
+];
+const $ = s => document.querySelector(s);
+const plata = n => '$' + n.toLocaleString('es-AR');
+const tiempo = m => (m >= 60 ? Math.floor(m / 60) + ' h ' : '') + (m % 60 ? (m % 60) + ' min' : '');
+const por = id => SERVICIOS.find(s => s.id == id);
+let turno = [];
+try { turno = (JSON.parse(localStorage.getItem('lua-turno')) || []).filter(por); } catch (e) {}
+const guardar = () => { try { localStorage.setItem('lua-turno', JSON.stringify(turno)); } catch (e) {} };
+
+// Render de los servicios (una sola vez; los filtros solo muestran u ocultan)
+const grid = $('#productos');
+grid.innerHTML = SERVICIOS.map(s => `
+  <article class="prod reveal" data-id="${s.id}">
+    ${s.tag ? `<span class="etiqueta">${s.tag}</span>` : ''}
+    <div class="img"><img src="${U(s.img)}" alt="" loading="lazy"></div>
+    <div class="i"><span class="marca">${s.c}</span><h3>${s.n}</h3><p class="desc">${s.d}</p>
+      <div class="pie-prod"><span class="precio">${plata(s.p)}<small>${tiempo(s.m)}</small></span><button type="button" class="agregar" data-id="${s.id}"></button></div>
+    </div>
+  </article>`).join('');
+
+const cats = ['Todos', ...new Set(SERVICIOS.map(s => s.c))];
+$('.cats').innerHTML = cats.map((c, i) => `<button type="button" class="cat${i ? '' : ' activa'}" data-c="${c}">${c}</button>`).join('');
+
+let cat = 'Todos', busq = '';
+function filtrar() {
+  let visibles = 0;
+  [...grid.children].forEach(a => {
+    const s = por(a.dataset.id);
+    const ok = (cat === 'Todos' || s.c === cat) && (s.n + ' ' + s.c + ' ' + s.d).toLowerCase().includes(busq);
+    a.hidden = !ok; if (ok) { visibles++; a.classList.add('on'); }
+  });
+  $('.vacio').style.display = visibles ? 'none' : 'block';
+}
+$('.cats').addEventListener('click', e => {
+  const b = e.target.closest('.cat'); if (!b) return;
+  cat = b.dataset.c; document.querySelectorAll('.cat').forEach(x => x.classList.toggle('activa', x === b)); filtrar();
+});
+$('.herr input').addEventListener('input', e => { busq = e.target.value.trim().toLowerCase(); filtrar(); });
+
+// Botones de cada servicio y panel "Mi turno"
+function pintar() {
+  document.querySelectorAll('.prod').forEach(a => {
+    const on = turno.includes(+a.dataset.id), b = a.querySelector('.agregar');
+    a.classList.toggle('elegido', on);
+    b.textContent = on ? '✓ Agregado' : 'Agregar';
+    b.setAttribute('aria-pressed', on);
+  });
+  const total = turno.reduce((t, id) => t + por(id).p, 0), min = turno.reduce((t, id) => t + por(id).m, 0);
+  $('.cant').textContent = turno.length;
+  $('.total-monto').textContent = plata(total);
+  $('.dur').textContent = min ? '· ' + tiempo(min) : '';
+  $('.enviar').disabled = !turno.length;
+  $('.items').innerHTML = turno.length ? turno.map(id => {
+    const s = por(id);
+    return `<div class="linea"><img src="${U(s.img)}" alt=""><div><b>${s.n}</b><small>${plata(s.p)} · ${tiempo(s.m)}</small></div>
+      <button type="button" class="quitar" data-id="${id}" aria-label="Quitar ${s.n}">×</button></div>`;
+  }).join('') : '<p class="carrito-vacio">Todavía no elegiste servicios.<br>Sumá los que quieras de la lista.</p>';
+  guardar();
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('.agregar, .quitar'); if (!b) return;
+  const id = +b.dataset.id, i = turno.indexOf(id);
+  if (i < 0) { turno.push(id); const c = $('.carrito-btn'); c.classList.remove('salto'); void c.offsetWidth; c.classList.add('salto'); }
+  else turno.splice(i, 1);
+  pintar();
+});
+const abrir = v => { document.body.classList.toggle('abierto', v); $('.carrito').setAttribute('aria-hidden', !v); };
+$('.carrito-btn').addEventListener('click', () => abrir(true));
+$('.cerrar').addEventListener('click', () => abrir(false));
+$('.velo').addEventListener('click', () => abrir(false));
+addEventListener('keydown', e => { if (e.key === 'Escape') abrir(false); });
+
+// Enviar el turno armado por WhatsApp
+$('.enviar').addEventListener('click', () => {
+  const lineas = turno.map(id => { const s = por(id); return `• ${s.n} — ${plata(s.p)}`; });
+  const total = turno.reduce((t, id) => t + por(id).p, 0), min = turno.reduce((t, id) => t + por(id).m, 0);
+  const nombre = $('.f-nombre').value.trim(), dia = $('.f-dia').value.trim();
+  const txt = `Hola!${nombre ? ' Soy ' + nombre + '.' : ''} Quiero reservar un turno para:\n${lineas.join('\n')}\n\nTotal: ${plata(total)} · Duración: ${tiempo(min)}${dia ? '\nPrefiero: ' + dia : ''}\n¿Qué horarios tienen?`;
+  const a = document.createElement('a'); a.href = WA + '?text=' + encodeURIComponent(txt); a.target = '_blank'; a.rel = 'noopener';
+  document.body.appendChild(a); a.click(); a.remove();
+});
+
+pintar(); filtrar();
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }), { threshold: .12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+<script src="../_fx/fx.js" defer></script>
+</body>
+</html>
